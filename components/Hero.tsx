@@ -6,11 +6,11 @@ interface HeroProps {
   image?: string
 }
 
-export default function Hero({ title, subtitle, image }: HeroProps = {}) {
+export default function Hero(props: HeroProps) {
   // Default values for homepage hero
-  const heroTitle = title || 'Powering Remote Islands with Reliable Generator Solutions'
-  const heroSubtitle = subtitle || 'Expert parts supply, repairs, and technical services for island communities across the region'
-  const heroImage = image || 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1600&h=900&fit=crop&auto=format,compress'
+  const heroTitle = props.title || 'Powering Remote Islands with Reliable Generator Solutions'
+  const heroSubtitle = props.subtitle || 'Expert parts supply, repairs, and technical services for island communities across the region'
+  const heroImage = props.image || 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1600&h=900&fit=crop&auto=format,compress'
 
   return (
     <section className="relative bg-gradient-to-br from-primary to-primary-dark text-white overflow-hidden">
