@@ -1,12 +1,23 @@
 import Link from 'next/link'
 
-export default function Hero() {
+interface HeroProps {
+  title?: string
+  subtitle?: string
+  image?: string
+}
+
+export default function Hero({ title, subtitle, image }: HeroProps = {}) {
+  // Default values for homepage hero
+  const heroTitle = title || 'Powering Remote Islands with Reliable Generator Solutions'
+  const heroSubtitle = subtitle || 'Expert parts supply, repairs, and technical services for island communities across the region'
+  const heroImage = image || 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1600&h=900&fit=crop&auto=format,compress'
+
   return (
     <section className="relative bg-gradient-to-br from-primary to-primary-dark text-white overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1600&h=900&fit=crop&auto=format,compress"
+          src={heroImage}
           alt="Generator on remote island"
           className="w-full h-full object-cover opacity-20"
         />
@@ -16,10 +27,10 @@ export default function Hero() {
       <div className="relative z-10 container-custom py-20 md:py-32">
         <div className="max-w-3xl">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Powering Remote Islands with Reliable Generator Solutions
+            {heroTitle}
           </h1>
           <p className="text-xl md:text-2xl text-blue-100 mb-8">
-            Expert parts supply, repairs, and technical services for island communities across the region
+            {heroSubtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href="/contact" className="btn-primary bg-white text-primary hover:bg-gray-100">
